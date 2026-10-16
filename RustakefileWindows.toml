@@ -1,0 +1,12 @@
+[targets.program]
+    depends = ["src/ptittest.rs", "src/lib.rs"]
+    command = "rustc src/ptittest.rs -o program.exe"
+
+    [targets.test]
+    depends = ["src/lib.rs", "tests/test.rs", "run"]
+    command = "cargo test"
+
+    [targets.run]
+    depends = ["program"]
+    command = ".\\program.exe"
+    

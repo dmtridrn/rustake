@@ -1,0 +1,12 @@
+[targets.program]
+depends = ["src/ptittest.rs", "src/lib.rs"]
+command = "cargo build --quiet -p minigrep"
+
+[targets.test]
+depends = ["src/lib.rs", "tests/test.rs"]    
+command = "cargo test --quiet"
+
+[targets.run]
+depends = ["program"]
+command = "cargo run --quiet -p minigrep -- body minigrep/poem.txt"
+    
